@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 import './App.css';
 import './Styles/ContentPages.css';
@@ -16,11 +16,7 @@ import ProtectedRoute from './Components/ProtectedRoute';
 import ScrollToTop from './Components/ScrollToTop';
 
 function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-
     useEffect(() => {
-        const authStatus = localStorage.getItem('isAuthenticated') === 'true';
-        setIsAuthenticated(authStatus);
 
         fetch('/api/settings')
             .then(res => res.json())
