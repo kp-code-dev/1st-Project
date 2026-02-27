@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import '../Styles/Header.css';
-const imgsrc = '/logo.svg'; 
 import { Link, useNavigate } from "react-router-dom";
+import '../Styles/Header.css';
+
+const imgsrc = '/logo.svg'; 
 
 function Header({ onSearch }) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
