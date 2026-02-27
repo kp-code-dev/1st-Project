@@ -168,7 +168,7 @@ function GameDetails() {
                         <div className="download-card">
                             <h3>Download {game.title}</h3>
                             <p>Size: {game.size}</p>
-                            <a href={game.downloadUrl} className="dwn-btn" target="_blank" rel="noopener noreferrer">Download Now</a>
+                            <a href={game.downloadUrl} className="download-btn" target="_blank" rel="noopener noreferrer">Download Now</a>
                         </div>
                         
                         <div className="info-card">
