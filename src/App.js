@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 import './App.css';
 import './Styles/ContentPages.css';
@@ -14,9 +14,13 @@ import AdminLogin from './Pages/AdminLogin';
 import AdminDashboard from './Pages/AdminDashboard';
 import ProtectedRoute from './Components/ProtectedRoute';
 import ScrollToTop from './Components/ScrollToTop';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
     useEffect(() => {
+        // We can just execute this if needed or drop the state
+        localStorage.getItem('isAuthenticated');
 
         fetch('/api/settings')
             .then(res => res.json())
@@ -53,6 +57,8 @@ function App() {
                 } />
             </Routes>
             <ScrollToTop />
+            <Analytics />
+            <SpeedInsights />
         </>
     )
 }

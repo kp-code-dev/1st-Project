@@ -103,6 +103,8 @@ function GameDetails() {
                                         fontSize: "16px", 
                                         background: "rgba(0, 0, 0, 0.1)",
                                         backdropFilter: "blur(10px)",
+                                        border: "1px solid rgba(255, 255, 255, 0.15)",
+                                        boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
                                         borderRadius: "20px",
                                         boxShadow: "0 2px 30px 0 rgba(0, 0, 0, 0.67)",
                                         color: "white", 

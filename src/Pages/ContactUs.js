@@ -62,7 +62,7 @@ function ContactUs() {
                             rows="5"
                         ></textarea>
                     </div>
-                    <Button className="dwn-btn" text="Send Message" style={{ width: '100%', cursor: 'pointer', marginTop: '10px' }} />
+                    <Button className="sub-btn" text="Send Message" style={{ width: '100%', cursor: 'pointer', marginTop: '10px' }} />
                 </form>
             </div>
             <Footer />

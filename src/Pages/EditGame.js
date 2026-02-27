@@ -9,26 +9,26 @@ const EditGame = ({ gameId, onBack }) => {
     });
 
     useEffect(() => {
-        const fetchGameData = async () => {
-            try {
-                const res = await fetch(`/api/games/${gameId}`);
-                const data = await res.json();
-                if(data) {
-                    setFormData({
-                        ...data,
-                        keywords: data.keywords ? data.keywords.join(', ') : '',
-                        screenshots: data.screenshots ? data.screenshots.join(', ') : '',
-                        minOs: data.minRequirements?.os || '', minProcessor: data.minRequirements?.processor || '', minMemory: data.minRequirements?.memory || '', minGraphics: data.minRequirements?.graphics || '', minStorage: data.minRequirements?.storage || '',
-                        recOs: data.recRequirements?.os || '', recProcessor: data.recRequirements?.processor || '', recMemory: data.recRequirements?.memory || '', recGraphics: data.recRequirements?.graphics || '', recStorage: data.recRequirements?.storage || ''
-                    });
-                }
-            } catch (error) {
-                console.error("Error fetching game data:", error);
-            }
-        };
-
         if(gameId) fetchGameData();
     }, [gameId]);
+
+    const fetchGameData = async () => {
+        try {
+            const res = await fetch(`/api/games/${gameId}`);
+            const data = await res.json();
+            if(data) {
+                setFormData({
+                    ...data,
+                    keywords: data.keywords ? data.keywords.join(', ') : '',
+                    screenshots: data.screenshots ? data.screenshots.join(', ') : '',
+                    minOs: data.minRequirements?.os || '', minProcessor: data.minRequirements?.processor || '', minMemory: data.minRequirements?.memory || '', minGraphics: data.minRequirements?.graphics || '', minStorage: data.minRequirements?.storage || '',
+                    recOs: data.recRequirements?.os || '', recProcessor: data.recRequirements?.processor || '', recMemory: data.recRequirements?.memory || '', recGraphics: data.recRequirements?.graphics || '', recStorage: data.recRequirements?.storage || ''
+                });
+            }
+        } catch (error) {
+            console.error("Error fetching game data:", error);
+        }
+    };
 
     const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
