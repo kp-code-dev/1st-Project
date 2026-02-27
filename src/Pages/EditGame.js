@@ -10,6 +10,7 @@ const EditGame = ({ gameId, onBack }) => {
 
     useEffect(() => {
         if(gameId) fetchGameData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [gameId]);
 
     const fetchGameData = async () => {
