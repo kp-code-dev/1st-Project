@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../Styles/Header.css';
-import imgsrc from '../icon/logo.png';
+import imgsrc from '../icon/logo.svg';
 import { Link, useNavigate } from "react-router-dom";
 
 function Header({ onSearch }) {
