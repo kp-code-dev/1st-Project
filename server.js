@@ -41,6 +41,7 @@ const gameSchema = new mongoose.Schema({
   publisher: String,
   releaseDate: String,
   size: String,
+  downloadUrl: String,
   screenshots: [String],
   playUrl: String,
   minRequirements: Object,

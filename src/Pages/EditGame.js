@@ -39,7 +39,7 @@ const EditGame = ({ gameId, onBack }) => {
         if (!token) return alert("Session expired.");
 
         const finalData = {
-            id: formData.id, title: formData.title, image: formData.image, label: formData.title, description: formData.description, developer: formData.developer, publisher: formData.publisher, releaseDate: formData.releaseDate, size: formData.size, playUrl: formData.playUrl,
+            id: formData.id, title: formData.title, image: formData.image, label: formData.title, description: formData.description, developer: formData.developer, publisher: formData.publisher, releaseDate: formData.releaseDate, size: formData.size, downloadUrl: formData.downloadUrl, playUrl: formData.playUrl,
             keywords: typeof formData.keywords === 'string' ? formData.keywords.split(',').map(i => i.trim()) : formData.keywords, 
             screenshots: typeof formData.screenshots === 'string' ? formData.screenshots.split(',').map(i => i.trim()) : formData.screenshots,
             minRequirements: { os: formData.minOs, processor: formData.minProcessor, memory: formData.minMemory, graphics: formData.minGraphics, storage: formData.minStorage },
@@ -87,6 +87,7 @@ const EditGame = ({ gameId, onBack }) => {
                         <div className="form-group"><input type="text" name="releaseDate" placeholder="Release Date" value={formData.releaseDate} onChange={handleChange} className="form-input" /></div>
                         <div className="form-group"><input type="text" name="size" placeholder="Size (e.g. 100 GB)" value={formData.size} onChange={handleChange} className="form-input" /></div>
                     </div>
+                    <div className="form-group"><input type="text" name="downloadUrl" placeholder="Download URL" value={formData.downloadUrl} onChange={handleChange} className="form-input" /></div>
                 </div>
 
                 <div className="form-section">

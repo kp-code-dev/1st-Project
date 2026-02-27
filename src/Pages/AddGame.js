@@ -3,7 +3,7 @@ import '../Styles/Admin.css';
 
 const AddGame = ({ onBack }) => {
     const [formData, setFormData] = useState({
-        id: '', title: '', image: '', label: '', description: '', developer: '', publisher: '', releaseDate: '', size: '', playUrl: '', keywords: '', screenshots: '', 
+        id: '', title: '', image: '', label: '', description: '', developer: '', publisher: '', releaseDate: '', size: '', downloadUrl: '', playUrl: '', keywords: '', screenshots: '', 
         minOs: '', minProcessor: '', minMemory: '', minGraphics: '', minStorage: '',
         recOs: '', recProcessor: '', recMemory: '', recGraphics: '', recStorage: ''
     });
@@ -16,7 +16,7 @@ const AddGame = ({ onBack }) => {
         if (!token) return alert("Session expired.");
 
         const finalData = {
-            id: formData.id, title: formData.title, image: formData.image, label: formData.title, description: formData.description, developer: formData.developer, publisher: formData.publisher, releaseDate: formData.releaseDate, size: formData.size, playUrl: formData.playUrl,
+            id: formData.id, title: formData.title, image: formData.image, label: formData.title, description: formData.description, developer: formData.developer, publisher: formData.publisher, releaseDate: formData.releaseDate, size: formData.size, downloadUrl: formData.downloadUrl, playUrl: formData.playUrl,
             keywords: formData.keywords.split(',').map(i => i.trim()), 
             screenshots: formData.screenshots.split(',').map(i => i.trim()),
             minRequirements: { os: formData.minOs, processor: formData.minProcessor, memory: formData.minMemory, graphics: formData.minGraphics, storage: formData.minStorage },
@@ -64,6 +64,7 @@ const AddGame = ({ onBack }) => {
                         <div className="form-group"><input type="text" name="releaseDate" placeholder="Release Date" value={formData.releaseDate} onChange={handleChange} className="form-input" /></div>
                         <div className="form-group"><input type="text" name="size" placeholder="Size (e.g. 100 GB)" value={formData.size} onChange={handleChange} className="form-input" /></div>
                     </div>
+                    <div className="form-group"><input type="text" name="downloadUrl" placeholder="Download URL" value={formData.downloadUrl} onChange={handleChange} className="form-input" /></div>
                 </div>
 
                 <div className="form-section">
