@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+const compression = require("compression");
 const multer = require("multer");
 const path = require("path");
 
@@ -11,6 +12,7 @@ const PORT = 5000;
 const JWT_SECRET = "worldofmsd_super_secret_key_123"; // Hardcoded secret
 
 // Middleware
+app.use(compression());
 app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
@@ -47,6 +49,10 @@ const gameSchema = new mongoose.Schema({
   minRequirements: Object,
   recRequirements: Object,
 });
+
+// Adding Index to performance increase searching
+gameSchema.index({ id: 1 });
+gameSchema.index({ title: 'text', keywords: 'text' });
 
 const slideSchema = new mongoose.Schema({
   image: String,
