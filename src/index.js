@@ -5,12 +5,16 @@ import './index.css';
 import App from './App';
 
 
+import { HelmetProvider } from 'react-helmet-async';
+
 const root = createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
   </React.StrictMode>
 );
 

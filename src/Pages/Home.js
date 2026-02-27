@@ -120,6 +120,7 @@ import GameCard from '../Components/GameCard';
 import Button from '../Components/Button';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
+import { Helmet } from 'react-helmet-async';
 // import { slides } from '../Data/slides';
 // import { gamesData } from '../Data/games';
 
@@ -168,6 +169,10 @@ function Home() {
 
     return (
         <>
+            <Helmet>
+                <title>World of MSD | Download Free Pre-Installed Games</title>
+                <meta name="description" content="Explore and download the best pre-installed PC and mobile games for free. No installation required, just download and play." />
+            </Helmet>
             <Header onSearch={setSearchTerm} />
             
             <div className="slider-container">

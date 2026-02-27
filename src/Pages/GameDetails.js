@@ -4,6 +4,7 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 // import { gamesData } from '../Data/games'; 
 import '../Styles/GameDetails.css';
+import { Helmet } from 'react-helmet-async';
 
 function GameDetails() {
     const { id } = useParams();
@@ -72,6 +73,12 @@ function GameDetails() {
 
     return (
         <>
+            <Helmet>
+                <title>{game.title} | Download Free Game | World of MSD</title>
+                <meta name="description" content={`Download ${game.title} for free. ${game.description?.substring(0, 150)}... Pre-installed and ready to play.`} />
+                <meta property="og:title" content={`${game.title} - World of MSD`} />
+                <meta property="og:image" content={game.image} />
+            </Helmet>
             <Header />
             <div className="game-details-container">
                 <div className="game-hero" style={{ backgroundImage: `linear-gradient(rgba(70, 0, 0, 0.5), rgba(0, 0, 0, 0.89)), url(${game.image})` }}>
