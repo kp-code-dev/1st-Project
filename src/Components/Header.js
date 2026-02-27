@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import '../Styles/Header.css';
-import imgsrc from '../Icon/logo.png';
+import imgsrc from '../icon/logo.png';
 import { Link, useNavigate } from "react-router-dom";
 
 function Header({ onSearch }) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchText, setSearchText] = useState("");
-    const [logoUrl, setLogoUrl] = useState(imgsrc); // default fallback
+    const [logoUrl, setLogoUrl] = useState(imgsrc);
     const navigate = useNavigate();
 
     // Fetch settings on mount

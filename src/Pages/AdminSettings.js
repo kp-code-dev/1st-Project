@@ -30,33 +30,6 @@ const AdminSettings = () => {
         setSettings({ ...settings, [e.target.name]: e.target.value });
     };
 
-    const handleFileUpload = async (e, field) => {
-        const file = e.target.files[0];
-        if (!file) return;
-
-        const token = localStorage.getItem('adminToken');
-        const formData = new FormData();
-        formData.append("file", file);
-
-        try {
-            const res = await fetch('/api/upload', {
-                method: 'POST',
-                headers: { 'Authorization': `Bearer ${token}` },
-                body: formData
-            });
-
-            if (res.ok) {
-                const data = await res.json();
-                setSettings({ ...settings, [field]: data.url });
-                alert(`${field === 'logoUrl' ? 'Logo' : 'Favicon'} uploaded successfully! Remember to save settings.`);
-            } else {
-                alert("File upload failed.");
-            }
-        } catch (error) {
-            console.error("Upload error:", error);
-            alert("Error uploading file.");
-        }
-    };
 
     const handleSave = async (e) => {
         e.preventDefault();
@@ -89,14 +62,14 @@ const AdminSettings = () => {
                     <h3>Header & Tab Configuration</h3>
                     <div className="form-row">
                         <div className="form-group row-labeled" style={{flexDirection: "column", alignItems: "flex-start"}}>
-                            <label>Logo Image Upload</label>
+                            <label>Logo Image URL</label>
                             {settings.logoUrl && <img src={settings.logoUrl} alt="Logo preview" height="40" style={{marginBottom: "10px", objectFit: "contain"}}/>}
-                            <input type="file" onChange={(e) => handleFileUpload(e, 'logoUrl')} className="form-input" accept="image/*" />
+                            <input type="text" name="logoUrl" placeholder="Enter Logo Image URL" value={settings.logoUrl || ''} onChange={handleChange} className="form-input" />
                         </div>
                         <div className="form-group row-labeled" style={{flexDirection: "column", alignItems: "flex-start"}}>
-                            <label>Favicon Upload (Browser Tab Icon)</label>
+                            <label>Favicon URL (Browser Tab Icon)</label>
                             {settings.faviconUrl && <img src={settings.faviconUrl} alt="Favicon preview" height="40" style={{marginBottom: "10px", objectFit: "contain"}}/>}
-                            <input type="file" onChange={(e) => handleFileUpload(e, 'faviconUrl')} className="form-input" accept="image/*" />
+                            <input type="text" name="faviconUrl" placeholder="Enter Favicon Image URL" value={settings.faviconUrl || ''} onChange={handleChange} className="form-input" />
                         </div>
                     </div>
                 </div>

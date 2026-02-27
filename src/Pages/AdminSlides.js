@@ -22,31 +22,7 @@ const AdminSlides = () => {
         }
     };
 
-    const handleFileUpload = async (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
 
-        const token = localStorage.getItem('adminToken');
-        const uploadData = new FormData();
-        uploadData.append("file", file);
-
-        try {
-            const res = await fetch('/api/upload', {
-                method: 'POST',
-                headers: { 'Authorization': `Bearer ${token}` },
-                body: uploadData
-            });
-
-            if (res.ok) {
-                const data = await res.json();
-                setFormData({ ...formData, image: data.url });
-            } else {
-                alert("File upload failed.");
-            }
-        } catch (error) {
-            console.error("Upload error:", error);
-        }
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -121,10 +97,9 @@ const AdminSlides = () => {
                 <h3>{editMode ? "Edit Slide" : "Add New Slide"}</h3>
                 
                 <div className="form-group row-labeled" style={{flexDirection: "column", alignItems: "flex-start", marginBottom: '15px'}}>
-                    <label>Slide Image Upload</label>
+                    <label>Slide Image URL</label>
                     {formData.image && <img src={formData.image} alt="Slide preview" height="60" style={{marginBottom: "10px", borderRadius: "4px", objectFit: "contain"}}/>}
-                    <input type="file" onChange={handleFileUpload} className="form-input" accept="image/*," />
-                    <p style={{fontSize: '12px', marginTop: '5px', color: '#ffb3b3'}}>Or paste image URL below:</p>
+                    <p style={{fontSize: '12px', marginTop: '5px', color: '#ffb3b3'}}>Paste image URL below:</p>
                 </div>
 
                 <div className="form-row">
