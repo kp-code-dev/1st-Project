@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
-import Button from '../Components/Button';
 // import { gamesData } from '../Data/games'; 
 import '../Styles/GameDetails.css';
 
@@ -169,7 +168,7 @@ function GameDetails() {
                         <div className="download-card">
                             <h3>Download {game.title}</h3>
                             <p>Size: {game.size}</p>
-                            <a href={game.downloadUrl} className="dwn-btn" text="Download Now" />
+                            <a href={game.downloadUrl} className="dwn-btn" target="_blank" rel="noopener noreferrer">Download Now</a>
                         </div>
                         
                         <div className="info-card">
