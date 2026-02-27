@@ -3,7 +3,7 @@ import '../Styles/Admin.css';
 
 const EditGame = ({ gameId, onBack }) => {
     const [formData, setFormData] = useState({
-        id: '', title: '', image: '', label: '', description: '', developer: '', publisher: '', releaseDate: '', size: '', playUrl: '', keywords: '', screenshots: '', 
+        id: '', title: '', image: '', label: '', description: '', developer: '', publisher: '', releaseDate: '', size: '', downloadUrl: '', playUrl: '', keywords: '', screenshots: '', 
         minOs: '', minProcessor: '', minMemory: '', minGraphics: '', minStorage: '',
         recOs: '', recProcessor: '', recMemory: '', recGraphics: '', recStorage: ''
     });

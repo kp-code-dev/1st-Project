@@ -144,7 +144,6 @@ function GameDetails() {
                                 <div className="req-column">
                                     <h3>Minimum</h3>
                                     <ul>
-                                        {/* ?. (Optional Chaining) लगाया है ताकि अगर डेटा न हो तो एरर न आए */}
                                         <li><strong>OS:</strong> {game.minRequirements?.os || "N/A"}</li>
                                         <li><strong>Processor:</strong> {game.minRequirements?.processor || "N/A"}</li>
                                         <li><strong>Memory:</strong> {game.minRequirements?.memory || "N/A"}</li>
@@ -170,7 +169,7 @@ function GameDetails() {
                         <div className="download-card">
                             <h3>Download {game.title}</h3>
                             <p>Size: {game.size}</p>
-                            <Button className="dwn-btn" text="Download Now" />
+                            <a href={game.downloadUrl} className="dwn-btn" text="Download Now" />
                         </div>
                         
                         <div className="info-card">
