@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import Button from '../Components/Button';
+import '../Styles/ContactUs.css';
 
 function ContactUs() {
     const [formData, setFormData] = useState({
@@ -62,7 +63,7 @@ function ContactUs() {
                             rows="5"
                         ></textarea>
                     </div>
-                    <Button className="sub-btn" text="Send Message" style={{ width: '100%', cursor: 'pointer', marginTop: '10px' }} />
+                    <Button className="send-btn" text="Send Message" style={{ width: '100%', cursor: 'pointer', marginTop: '10px' }} />
                 </form>
             </div>
             <Footer />
