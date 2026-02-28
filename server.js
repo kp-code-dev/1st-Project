@@ -5,11 +5,12 @@ const jwt = require("jsonwebtoken");
 const compression = require("compression");
 const multer = require("multer");
 const path = require("path");
+require("dotenv").config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-const JWT_SECRET = "worldofmsd_super_secret_key_123"; // Hardcoded secret
+const JWT_SECRET = process.env.JWT_SECRET || "worldofmsd_super_secret_key_123"; // Fallback for local testing only
 
 // Middleware
 app.use(compression());
@@ -20,8 +21,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // ==========================================
 // 1. DATABASE CONNECTION
 // ==========================================
-const MONGO_URL =
-  "mongodb+srv://word_of_msd:worldofmsd771981@cluster0.rbw0jor.mongodb.net/?appName=Cluster0";
+const MONGO_URL = process.env.MONGO_URL;
 
 mongoose
   .connect(MONGO_URL)

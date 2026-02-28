@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-const MONGO_URL = "mongodb+srv://word_of_msd:worldofmsd771981@cluster0.rbw0jor.mongodb.net/?appName=Cluster0"; 
+const MONGO_URL = process.env.MONGO_URL; 
 
 const gamesData = [
     {
