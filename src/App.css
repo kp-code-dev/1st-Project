@@ -221,7 +221,6 @@ html, body {
 }
 
 .game-card {
-  background: rgb(114, 50, 50);
   display: inline-block;
   margin: 0 auto;
   width: 100%;
@@ -254,12 +253,11 @@ html, body {
 }
 
 .game-info {
-  padding: 1rem 1.25rem 1.5rem;
+  padding: 10px ;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 90px;
   color: #ffffff;
   font-weight: 500;
   font-size: 0.9rem;
@@ -267,7 +265,6 @@ html, body {
 }
 
 .game-title {
-  margin-top: 0.5rem;
   font-size: 1rem;
   color: #f0f0f0;
 }
